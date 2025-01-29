@@ -14,3 +14,12 @@ jobs:
       - name: Display Author
         run: |
           echo "Hello!, Run triggered by ${{ github.actor }}"
+        
+      - name: Store Github Actor as Variable
+        id: actor
+        run: |
+          echo "github-actor=${{github.actor}}" >> $GITHUB_OUTPUT
+
+      - name: Read Output from Previous Step
+        run: |
+          echo "Actor from Previous steps: ${{ steps.actor.outputs.github-actor }}"
