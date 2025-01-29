@@ -13,4 +13,4 @@ jobs:
     steps:
       - name: Display Author
         run: |
-          echo "Hello ${{ github.author }}"
+          echo "Hello!, Run triggered by ${{ github.actor }}"
