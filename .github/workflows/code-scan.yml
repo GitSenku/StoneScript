@@ -1,9 +1,0 @@
-name: "Enforce Code Scan Workflow"
-on:
-  pull_request:
-    types: [ opened, reopened, synchronize ]
-  workflow_dispatch:
-jobs:
-  code-scan:
-      uses: GitSenku/MonoMakima/.github/workflows/code-scan.yml@main
-      secrets: inherit
