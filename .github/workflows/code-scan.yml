@@ -5,14 +5,5 @@ on:
   workflow_dispatch:
 jobs:
   code-scan:
-    name: Run Security Code Scan
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Run Code Scan
-        run: |
-          echo "Running security scan..."
-          sleep 10
-          echo "Completed security scan..."
+      uses: GitSenku/MonoMakima/.github/workflows/code-scan.yml@main
+      secrets: inherit
