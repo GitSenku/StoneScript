@@ -1,0 +1,35 @@
+name: Repo Sync With PR
+on:
+  workflow_dispatch:
+    inputs:
+      source-repo:
+        description: "The full name (org/repo) of the source repository to sync from"
+        required: false
+        type: string
+      source-branch:
+        description: "The branch name in the source repository to sync from"
+        required: false
+        type: string
+      destination-repo:
+        description: "The full name (org/repo) of the destination repository to sync to"
+        required: false
+        type: string
+      destination-branch:
+        description: "The branch name in the destination repository to sync to"
+        required: false
+        type: string
+      sync-operation:
+        description: "The type of sync operation to perform (pull request or force push)"
+        required: false
+        type: string
+jobs:
+  sync-repo:
+    uses: GitSenku/MonoMakima/.github/workflows/sync-repo-with-pr.yml@main
+    secrets: inherit
+    with:
+      source-repo: ${{inputs.source-repo}}
+      source-branch: ${{ inputs.source-branch }}
+      destination-repo: ${{inputs.destination-repo}}
+      destination-branch: ${{ inputs.destination-branch }}
+      sync-operation: ${{ inputs.sync-operation }}
+    
