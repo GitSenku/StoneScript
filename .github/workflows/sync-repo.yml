@@ -1,7 +1,40 @@
 name: Repo Sync
 on:
   workflow_dispatch:
+    inputs:
+      source-repo:
+        description: "The full name (org/repo) of the source repository to sync from"
+        required: false
+        type: string
+        default: "None"
+      source-branch:
+        description: "The branch name in the source repository to sync from"
+        required: false
+        type: string
+        default: "main"
+      destination-repo:
+        description: "The full name (org/repo) of the destination repository to sync to"
+        required: false
+        type: string
+        default: "None"
+      destination-branch:
+        description: "The branch name in the destination repository to sync to"
+        required: false
+        type: string
+        default: "main"
+      sync-operation:
+        description: "The type of sync operation to perform (pull request or force push)"
+        required: false
+        type: string
+        default: "pull_request"
 jobs:
   sync-repo:
     uses: GitSenku/MonoMakima/.github/workflows/sync-repos.yml@main
     secrets: inherit
+    with:
+      source_repo: '${{inputs.source-repo}}'
+      source_branch: '${{ inputs.source-branch }}'
+      destination_repo: '{{inputs.destination-repo}}'
+      destination_branch: '${{ inputs.destination-branch }}'
+      sync-operation: '${{ inputs.sync-operation }}'
+      
