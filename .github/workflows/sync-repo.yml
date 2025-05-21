@@ -1,0 +1,7 @@
+name: Repo Sync
+on:
+  workflow_dispatch:
+jobs:
+  sync-repo:
+    uses: GitSenku/MonoMakima/.github/workflows/sync-repos.yml@main
+    secrets: inherit
