@@ -27,9 +27,9 @@ jobs:
     uses: GitSenku/MonoMakima/.github/workflows/sync-repos.yml@main
     secrets: inherit
     with:
-      source-repo: '${{inputs.source-repo}}'
-      source-branch: '${{ inputs.source-branch }}'
-      destination-repo: '{{inputs.destination-repo}}'
-      destination-branch: '${{ inputs.destination-branch }}'
-      sync-operation: '${{ inputs.sync-operation }}'
+      source-repo: ${{inputs.source-repo}}
+      source-branch: ${{ inputs.source-branch }}
+      destination-repo: ${{inputs.destination-repo}}
+      destination-branch: ${{ inputs.destination-branch }}
+      sync-operation: ${{ inputs.sync-operation }}
       
